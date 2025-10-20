@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavanya Amara</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar1.jpg" alt="Lavanya Amara" width="70">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Lavanya Amara">Lavanya Amara</h1>
+          <span>
+            <p class="title">Software Developer</p>
+            <br>
+            <a href="assets/pdf/MyReSume.pdf" target="_blank" class="title">My Resume</a>
+          </span>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:lavanyaamara746@gmail.com" class="contact-link">lavanyaamara746@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+918074954654" class="contact-link">+91 8074954654</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Visakhapatnam, Andhra Pradesh</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="http://www.linkedin.com/in/lavanya-amara" class="social-link" style="border-radius: 50%; overflow: hidden;">
+              <img src="assets/images/linkedin.svg" style="width:30px; background-color: aliceblue; padding: 5px;" alt="">
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://leetcode.com/u/lavanyaamara/" class="social-link">
+              <img src="assets/images/leetcode.svg" style="width:30px; background-color: aliceblue; padding: 5px; border-radius:50%;" alt="">
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.github.com/LavanyaAmara" class="social-link">
+              <img src="assets/images/github-mark-white.png" style="width:30px;" alt="">
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.hackerrank.com/profile/lavanyaamara746" class="social-link">
+              <img src="assets/images/hack.jpg" style="width:30px; background-color: aliceblue; padding:5px; border-radius:50%;" alt="">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Details</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Projects</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+        </ul>
+      </nav>
+
+      <!-- ABOUT -->
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About Me</h2>
+        </header>
+        <section class="about-text">
+          <p>
+            I am Lavanya Amara, a passionate computer science enthusiast and a fast learner with a strong interest in technology and innovation. I have experience in web development using the MERN stack and Flask, and I enjoy creating efficient, user-friendly web applications.
+          </p>
+          <p>
+            My skills include C++, data structures and algorithms, and a solid understanding of core computer science fundamentals. I am currently learning machine learning to enhance my ability to build intelligent and data-driven solutions. I am always eager to learn new technologies, take on challenging projects, and continuously grow as a developer and problem solver.
+          </p>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="service">
+          <h3 class="h3 service-title">What I'm Doing</h3>
+          <ul class="service-list">
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/devweb.png" alt="Web development icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web Development</h4>
+                <p class="service-item-text">Creating responsive and dynamic web applications using MERN stack and Flask.</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/mlicon.jpg" alt="Machine Learning icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Machine Learning</h4>
+                <p class="service-item-text">Building predictive models and learning AI techniques to solve real-world problems.</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/cpp.jpeg" alt="C++ icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">C++ Programming</h4>
+                <p class="service-item-text">Solving complex problems and building efficient algorithms using C++.</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/dsa.png" alt="DSA icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Data Structures & Algorithms</h4>
+                <p class="service-item-text">Implementing optimized solutions to improve performance and efficiency in software.</p>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+      </article>
+
+      <!-- RESUME -->
+      <article class="resume" data-page="details">
+        <header>
+          <h2 class="h2 article-title">Details</h2>
+        </header>
+
+        <!-- Education Timeline -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+            <h3 class="h3">Education</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Anil Neerukonda Institute of Technology and Sciences</h4>
+              <span>2022 — 2026</span>
+              <p class="timeline-text">B.Tech - Computer Science Engineering (9.56 CGPA upto 6th Semester)</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Sri Viswa Junior College</h4>
+              <span>2020 — 2022</span>
+              <p class="timeline-text">Intermediate - MPC (981/1000)</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Ravindra Bharathi School</h4>
+              <span>2017 — 2020</span>
+              <p class="timeline-text">Secondary Education (99.67%)</p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+            <h3 class="h3">Experience</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Edunet Foundation (Internship)</h4>
+              <span>June 2025 - July 2025</span>
+              <p class="timeline-text">Machine Learning</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Edumoon (Internship)</h4>
+              <span>May 2024 - June 2024</span>
+              <p class="timeline-text">Full Stack Web Development</p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Skills -->
+        <section class="skill">
+          <h3 class="h3 skills-title">My Skills</h3>
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Web Development</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">C++</h5>
+                <data value="90">90%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Machine Learning</h5>
+                <data value="70">70%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Computer Science Fundamentals</h5>
+                <data value="90">90%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Data Structures & Algorithms</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+      </article>
+
+      <!-- PORTFOLIO -->
+      <article class="portfolio" data-page="projects">
+        <header>
+          <h2 class="h2 article-title">Projects & Certifications</h2>
+        </header>
+        <section class="projects">
+          <!-- Filter Buttons -->
+          <ul class="filter-list">
+            <li class="filter-item"><button class="active" data-filter-btn>Projects</button></li>
+            <li class="filter-item"><button data-filter-btn>Certifications</button></li>
+          </ul>
+
+          <!-- Dropdown Filter -->
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-select-value>Select category</div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>Projects</button></li>
+              <li class="select-item"><button data-select-item>Certifications</button></li>
+            </ul>
+          </div>
+
+          <!-- Project & Certification Items -->
+          <ul class="project-list">
+            <!-- Projects -->
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://github.com/LavanyaAmara/CollegeManagementSystem">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/img_college.png" alt="College Management System" loading="lazy">
+                </figure>
+                <h3 class="project-title">College Management System</h3>
+                <p class="project-category">Web Application</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://github.com/LavanyaAmara/autism_prediction_in_toddlers">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/toddler.webp" alt="Autism Prediction" loading="lazy">
+                </figure>
+                <h3 class="project-title">Autism Prediction in Toddlers</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://github.com/LavanyaAmara/Movie-Review-Platform">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/movie.jpeg" alt="Movie Review" loading="lazy">
+                </figure>
+                <h3 class="project-title">Movie Review Site</h3>
+                <p class="project-category">Flask, SQLite & JS</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://github.com/LavanyaAmara/Employee-Salary-Predictor">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/salary.jpeg" alt="Employee Salary Prediction" loading="lazy">
+                </figure>
+                <h3 class="project-title">Employee Salary Prediction Site</h3>
+                <p class="project-category">Machine Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://github.com/LavanyaAmara/MiniSQLEngine">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/sql.jpg" alt="Mini SQL Engine" loading="lazy">
+                </figure>
+                <h3 class="project-title">Mini SQL Engine</h3>
+                <p class="project-category">C++</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://lavanyaamara.github.io/csv-form-data-visualization/">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/csv.webp" alt="CSV Visualization" loading="lazy">
+                </figure>
+                <h3 class="project-title">CSV Form Visualization Site</h3>
+                <p class="project-category">HTML, CSS & JS</p>
+              </a>
+            </li>
+
+            <!-- Certifications -->
+            <li class="project-item" data-filter-item data-category="certifications">
+              <a href="https://certificates.cs50.io/45a836d5-3962-43a7-9ef6-69c9683313ae.pdf?size=letter" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/cs50x.webp" alt="CS50x" loading="lazy">
+                </figure>
+                <h3 class="project-title">CS50x: Introduction to Computer Science</h3>
+                <p class="project-category">edX</p>
+              </a>
+            </li>
+
+            <li class="project-item" data-filter-item data-category="certifications">
+              <a href="https://courses.edx.org/certificates/5b130ddb4da74f34b105a0d526760286" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/CS50P_pll.png" alt="CS50p" loading="lazy">
+                </figure>
+                <h3 class="project-title">CS50p by Harvard</h3>
+                <p class="project-category">edX</p>
+              </a>
+            </li>
+
+            <li class="project-item" data-filter-item data-category="certifications">
+              <a href="https://www.udemy.com/certificate/UC-66f07cb2-486d-4768-9505-96123c013aea/" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/web.jpg" alt="Fullstack Bootcamp" loading="lazy">
+                </figure>
+                <h3 class="project-title">The Complete Full-Stack Web Development Bootcamp</h3>
+                <p class="project-category">Udemy</p>
+              </a>
+            </li>
+
+            <li class="project-item" data-filter-item data-category="certifications">
+              <a href="https://coursera.org/share/82e839759b5f0104841de24dd5446c34" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/cn.jpeg" alt="Networking" loading="lazy">
+                </figure>
+                <h3 class="project-title">The Bits and Bytes of Computer Networking</h3>
+                <p class="project-category">Coursera</p>
+              </a>
+            </li>
+
+            <li class="project-item" data-filter-item data-category="certifications">
+              <a href="https://coursera.org/share/a3e2faabcbd41b237111b77441b34f1b" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/technical_support.jpg" alt="Technical Support" loading="lazy">
+                </figure>
+                <h3 class="project-title">Technical Support Fundamentals</h3>
+                <p class="project-category">Coursera</p>
+              </a>
+            </li>
+
+            <li class="project-item" data-filter-item data-category="certifications">
+              <a href="https://coursera.org/share/25f84299e95f0458450b99a825a242d5" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/ml.jpg" alt="Machine Learning" loading="lazy">
+                </figure>
+                <h3 class="project-title">Machine Learning by Andrew Ng</h3>
+                <p class="project-category">DeepLearning.AI</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- CONTACT -->
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form id="contact-form" class="form">
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
+
+            <button class="form-btn" type="submit">
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- JS Files -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/unpkg.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init("lpKStGcDNYaGI5PtP"); // your public key
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      emailjs.sendForm("service_dspsf98", "template_6vnmmgn", this)
+        .then(() => {
+          alert("✅ Message sent successfully!");
+          this.reset();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("❌ Failed to send message. Check console for details.");
+        });
+    });
+  </script>
+</body>
+
+</html>
