@@ -1,147 +1,112 @@
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+// =========================
+// ELEMENT TOGGLE FUNCTION
+// =========================
+const elementToggleFunc = (elem) => elem.classList.toggle("active");
 
-
-
-// sidebar variables
+// =========================
+// SIDEBAR TOGGLE (MOBILE)
+// =========================
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-
-// custom select variables
+// =========================
+// CUSTOM SELECT (MOBILE)
+// =========================
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
+const selectValue = document.querySelector("[data-select-value]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+// TOGGLE SELECT DROPDOWN
+select.addEventListener("click", () => elementToggleFunc(select));
 
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
-}
-
-// filter variables
+// =========================
+// FILTER ITEMS (PROJECTS & CERTIFICATIONS)
+// =========================
+const filterBtns = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-
-  }
-
-}
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
+// MOBILE DROPDOWN ITEM CLICK
+selectItems.forEach(itemBtn => {
+  itemBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent bubbling issues
+    const category = itemBtn.innerText.toLowerCase();
+    selectValue.innerText = itemBtn.innerText;
+    select.classList.remove("active"); // close dropdown
+    filterItemsFunc(category);
+    setActiveBtn(category);
   });
+});
 
+
+// DESKTOP FILTER BUTTON CLICK
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const category = btn.innerText.toLowerCase();
+    selectValue.innerText = btn.innerText;
+    filterItemsFunc(category);
+    setActiveBtn(category);
+  });
+});
+
+// COMMON FILTER FUNCTION
+function filterItemsFunc(category) {
+  filterItems.forEach(item => {
+    if (category === "all" || item.dataset.category === category) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
 }
 
+// SET ACTIVE BUTTON (DESKTOP)
+function setActiveBtn(category) {
+  filterBtns.forEach(btn => {
+    if (btn.innerText.toLowerCase() === category) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+}
 
+// =========================
+// PAGE NAVIGATION
+// =========================
+const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const pages = document.querySelectorAll("[data-page]");
 
-// contact form variables
+navigationLinks.forEach((link, index) => {
+  link.addEventListener("click", () => {
+    pages.forEach((page, i) => {
+      if (i === index) {
+        page.classList.add("active");
+        navigationLinks[i].classList.add("active");
+      } else {
+        page.classList.remove("active");
+        navigationLinks[i].classList.remove("active");
+      }
+    });
+    window.scrollTo(0, 0);
+  });
+});
+
+// =========================
+// CONTACT FORM VALIDATION
+// =========================
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-    console.log("nav clicked");
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
+// ENABLE/DISABLE BUTTON BASED ON VALIDITY
+if (form && formBtn) {
+  formInputs.forEach(input => {
+    input.addEventListener("input", () => {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
-  });
-}
-const filterBtns = document.querySelectorAll("[data-filter-btn]");
-const items = document.querySelectorAll("[data-filter-item]");
-
-filterBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const category = btn.textContent.toLowerCase();
-    filterBtns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    items.forEach(item => {
-      if (item.dataset.category === category) {
-        item.classList.add("active");
-      } else {
-        item.classList.remove("active");
+        formBtn.setAttribute("disabled", "");
       }
     });
   });
-});
+}
