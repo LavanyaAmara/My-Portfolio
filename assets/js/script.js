@@ -28,14 +28,23 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 // MOBILE DROPDOWN ITEM CLICK
 selectItems.forEach(itemBtn => {
   itemBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent bubbling issues
+    e.preventDefault();  // Prevent default button behavior
+    e.stopPropagation(); // Stop the event from bubbling
+
     const category = itemBtn.innerText.toLowerCase();
     selectValue.innerText = itemBtn.innerText;
-    select.classList.remove("active"); // close dropdown
+
+    // Close the dropdown
+    select.classList.remove("active");
+
+    // Filter items
     filterItemsFunc(category);
+
+    // Update desktop buttons as well
     setActiveBtn(category);
   });
 });
+
 
 
 // DESKTOP FILTER BUTTON CLICK
