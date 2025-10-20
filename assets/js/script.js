@@ -11,51 +11,13 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
 // =========================
-// CUSTOM SELECT (MOBILE)
-// =========================
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-select-value]");
-
-// TOGGLE SELECT DROPDOWN
-select.addEventListener("click", () => elementToggleFunc(select));
-
-// =========================
 // FILTER ITEMS (PROJECTS & CERTIFICATIONS)
 // =========================
-const filterBtns = document.querySelectorAll("[data-filter-btn]");
+const filterBtnsDesktop = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
-// MOBILE DROPDOWN ITEM CLICK
-selectItems.forEach(itemBtn => {
-  itemBtn.addEventListener("click", (e) => {
-    e.preventDefault();  // Prevent default button behavior
-    e.stopPropagation(); // Stop the event from bubbling
 
-    const category = itemBtn.innerText.toLowerCase();
-    selectValue.innerText = itemBtn.innerText;
-
-    // Close the dropdown
-    select.classList.remove("active");
-
-    // Filter items
-    filterItemsFunc(category);
-
-    // Update desktop buttons as well
-    setActiveBtn(category);
-  });
-});
-
-
-
-// DESKTOP FILTER BUTTON CLICK
-filterBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const category = btn.innerText.toLowerCase();
-    selectValue.innerText = btn.innerText;
-    filterItemsFunc(category);
-    setActiveBtn(category);
-  });
-});
+// MOBILE FILTER BUTTONS (NEW)
+const filterBtnsMobile = document.querySelectorAll(".filter-btn-mobile");
 
 // COMMON FILTER FUNCTION
 function filterItemsFunc(category) {
@@ -69,8 +31,8 @@ function filterItemsFunc(category) {
 }
 
 // SET ACTIVE BUTTON (DESKTOP)
-function setActiveBtn(category) {
-  filterBtns.forEach(btn => {
+function setActiveBtnDesktop(category) {
+  filterBtnsDesktop.forEach(btn => {
     if (btn.innerText.toLowerCase() === category) {
       btn.classList.add("active");
     } else {
@@ -78,6 +40,37 @@ function setActiveBtn(category) {
     }
   });
 }
+
+// SET ACTIVE BUTTON (MOBILE)
+function setActiveBtnMobile(category) {
+  filterBtnsMobile.forEach(btn => {
+    if (btn.innerText.toLowerCase() === category) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+}
+
+// DESKTOP FILTER BUTTON CLICK
+filterBtnsDesktop.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const category = btn.innerText.toLowerCase();
+    filterItemsFunc(category);
+    setActiveBtnDesktop(category);
+    setActiveBtnMobile(category);
+  });
+});
+
+// MOBILE FILTER BUTTON CLICK
+filterBtnsMobile.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const category = btn.innerText.toLowerCase();
+    filterItemsFunc(category);
+    setActiveBtnMobile(category);
+    setActiveBtnDesktop(category);
+  });
+});
 
 // =========================
 // PAGE NAVIGATION
@@ -107,7 +100,6 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// ENABLE/DISABLE BUTTON BASED ON VALIDITY
 if (form && formBtn) {
   formInputs.forEach(input => {
     input.addEventListener("input", () => {
