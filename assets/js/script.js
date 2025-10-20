@@ -11,64 +11,88 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
 // =========================
+// CUSTOM SELECT (MOBILE)
+// =========================
+const select = document.querySelector("[data-select]");
+const selectItems = document.querySelectorAll("[data-select-item]");
+const selectValue = document.querySelector("[data-select-value]");
+
+// TOGGLE SELECT DROPDOWN
+if (select) {
+  select.addEventListener("click", () => elementToggleFunc(select));
+}
+
+// =========================
 // FILTER ITEMS (PROJECTS & CERTIFICATIONS)
 // =========================
-const filterBtnsDesktop = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
-// MOBILE FILTER BUTTONS (NEW)
-const filterBtnsMobile = document.querySelectorAll(".filter-btn-mobile");
+// DESKTOP & MOBILE FILTER BUTTONS
+const filterBtnsDesktop = document.querySelectorAll(".filter-list [data-filter-btn]");
+const filterBtnsMobile = document.querySelectorAll(".filter-list-mobile [data-filter-btn]");
+const allFilterBtns = [...filterBtnsDesktop, ...filterBtnsMobile];
 
-// COMMON FILTER FUNCTION
-function filterItemsFunc(category) {
-  filterItems.forEach(item => {
-    if (category === "all" || item.dataset.category === category) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
-  });
-}
-
-// SET ACTIVE BUTTON (DESKTOP)
-function setActiveBtnDesktop(category) {
-  filterBtnsDesktop.forEach(btn => {
-    if (btn.innerText.toLowerCase() === category) {
-      btn.classList.add("active");
-    } else {
-      btn.classList.remove("active");
-    }
-  });
-}
-
-// SET ACTIVE BUTTON (MOBILE)
-function setActiveBtnMobile(category) {
-  filterBtnsMobile.forEach(btn => {
-    if (btn.innerText.toLowerCase() === category) {
-      btn.classList.add("active");
-    } else {
-      btn.classList.remove("active");
-    }
-  });
-}
-
-// DESKTOP FILTER BUTTON CLICK
-filterBtnsDesktop.forEach(btn => {
-  btn.addEventListener("click", () => {
+// FILTER CLICK HANDLER
+allFilterBtns.forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
     const category = btn.innerText.toLowerCase();
-    filterItemsFunc(category);
-    setActiveBtnDesktop(category);
-    setActiveBtnMobile(category);
+
+    // Filter items
+    filterItems.forEach(item => {
+      if (category === "projects" && item.dataset.category === "projects") {
+        item.classList.add("active");
+      } else if (category === "certifications" && item.dataset.category === "certifications") {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+
+    // Update active state for all buttons
+    allFilterBtns.forEach(b => {
+      if (b.innerText.toLowerCase() === category) {
+        b.classList.add("active");
+      } else {
+        b.classList.remove("active");
+      }
+    });
+
+    // Update mobile dropdown value if exists
+    if (selectValue) selectValue.innerText = btn.innerText;
+
+    // Close mobile dropdown after selection
+    if (select) select.classList.remove("active");
   });
 });
 
-// MOBILE FILTER BUTTON CLICK
-filterBtnsMobile.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const category = btn.innerText.toLowerCase();
-    filterItemsFunc(category);
-    setActiveBtnMobile(category);
-    setActiveBtnDesktop(category);
+// MOBILE DROPDOWN ITEMS (for small screens)
+selectItems.forEach(itemBtn => {
+  itemBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const category = itemBtn.innerText.toLowerCase();
+    selectValue.innerText = itemBtn.innerText;
+    select.classList.remove("active");
+
+    // Filter items
+    filterItems.forEach(item => {
+      if (category === "projects" && item.dataset.category === "projects") {
+        item.classList.add("active");
+      } else if (category === "certifications" && item.dataset.category === "certifications") {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+
+    // Update all buttons
+    allFilterBtns.forEach(b => {
+      if (b.innerText.toLowerCase() === category) {
+        b.classList.add("active");
+      } else {
+        b.classList.remove("active");
+      }
+    });
   });
 });
 
@@ -94,12 +118,13 @@ navigationLinks.forEach((link, index) => {
 });
 
 // =========================
-// CONTACT FORM VALIDATION
+// CONTACT FORM VALIDATION & EMAILJS
 // =========================
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
+const form = document.querySelector("[data-form]") || document.getElementById("contact-form");
+const formInputs = form ? form.querySelectorAll("[data-form-input], input, textarea") : [];
+const formBtn = form ? form.querySelector(".form-btn") : null;
 
+// ENABLE/DISABLE BUTTON BASED ON VALIDITY
 if (form && formBtn) {
   formInputs.forEach(input => {
     input.addEventListener("input", () => {
@@ -109,5 +134,23 @@ if (form && formBtn) {
         formBtn.setAttribute("disabled", "");
       }
     });
+  });
+}
+
+// EMAILJS SEND FORM
+if (form) {
+  emailjs.init("lpKStGcDNYaGI5PtP"); // your public key
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    emailjs.sendForm("service_dspsf98", "template_6vnmmgn", this)
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        this.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("❌ Failed to send message. Check console for details.");
+      });
   });
 }

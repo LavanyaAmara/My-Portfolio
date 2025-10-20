@@ -1880,22 +1880,33 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
-/* Mobile filter buttons */
-.filter-list-mobile {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px 0;
+.select-item button {
+  cursor: pointer;
+  width: 100%;
+}
+.filter-list button {
+  padding: 0.6rem 1rem;   /* more space for fingers */
+  font-size: 1rem;        /* easier to tap */
+  cursor: pointer;
 }
 
-.filter-btn-mobile {
-  padding: 5px 15px;
-  border: none;
-  background-color: #333;
+.filter-list button.active {
+  background-color: #0a74da; /* highlight active button */
   color: #fff;
-  border-radius: 5px;
+}
+/* Default: show desktop, hide mobile */
+.filter-list-mobile {
+  display: none;
 }
 
-.filter-btn-mobile.active {
-  background-color: #007bff;
+/* On mobile screens, hide desktop buttons & show mobile buttons */
+@media (max-width: 768px) {
+  .filter-list {
+    display: none;
+  }
+  .filter-list-mobile {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
 }
